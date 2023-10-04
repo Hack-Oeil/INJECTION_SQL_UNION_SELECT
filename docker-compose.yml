@@ -9,8 +9,6 @@ services:
       MYSQL_DATABASE: boutik
       MYSQL_USER: boutik_user
       MYSQL_PASSWORD: simpleSqlPass
-    ports:
-      - 3306:3306
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d
     networks:
