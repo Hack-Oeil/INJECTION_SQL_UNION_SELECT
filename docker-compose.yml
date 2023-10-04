@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: superSqlPassw0rD
+      MYSQL_DATABASE: boutik
+      MYSQL_USER: boutik_user
+      MYSQL_PASSWORD: simpleSqlPass
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d
+    networks:
+      my_docker_network:
+        ipv4_address: 172.27.0.20
+    container_name: ho-sqlserver
+  webserver:
+    build: web_server/
+    ports:
+      - 80:80
+    restart: always
+    networks:
+      my_docker_network:
+        ipv4_address: 172.27.0.22
+    depends_on:
+      - db
+    container_name: ho-webserver
+networks:
+  my_docker_network:
+    ipam:
+      config:
+        - subnet: 172.27.0.0/16
