@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Des marques chez vous</title>
+    <link rel="shortcut icon" href="{{ absolute_url("/assets/img/favicon.ico") }}">
+    <link rel="stylesheet" href="{{ absolute_url("/assets/css/defaut.css") }}" type="text/css" />
+</head>
+<body>
+<div id="wrap">
+    <header class="head">
+        <div id="bg_top_header">&nbsp;</div>
+        <div id="header">
+            <div id="head">
+                <div id="head_logo">
+                    <a href="{{ absolute_url("/") }}" width="280" height="45" title="logo" class="logo">&nbsp;</a>
+                </div>
+                <span class="sep_logo_menu">&nbsp;</span>
+                <div class="head_menu">
+                    <ul class="liste_lien"></ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul id="menu_haut">
+            <li class="home no_padding">
+                <a href="{{ absolute_url("/") }}">
+                    <img src="{{ absolute_url("/assets/img/home.png") }}" width="24px" haight="24px" />
+                </a>
+            </li>
+            <li class="home sep"></li>
+            <li class="no_padding">
+            <a href="javascript:;">Homme</a>
+                <!--<ul><li>Sous menu des hommes</li></ul>-->
+            </li>
+            <li class="sep"></li>
+            <li class="no_padding">
+                <a href="javascript:;">Femme</a>
+            </li>
+            <li class="sep"></li>
+            <li class="no_padding">
+                <a href="javascript:;">Enfant</a>
+            </li>
+            <li class="sep"></li>
+            <li>
+                <a href="javascript:;">Destockage</a>
+            </li>
+
+            <li class="sep"></li>
+            <li class="search">
+                <form action="{{ absolute_url("/") }}" method="get">
+                    <input type="search" name="q" id="header_search" value="{{ keyword }}" />
+                    <button id="btn_search">🔎</button>
+                </form>
+            </li>
+
+            <li class="sep"></li>
+            {% if app.user %}
+            <li class="login">
+                <a href="{{ absolute_url("/disconnect") }}" class="login-link">Se déconnecter</a>
+            </li>
+            {% else %}
+            <li class="login">
+                <a href="{{ absolute_url("/login") }}" class="login-link">Se connecter</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    <nav><div id="slider"></div></nav>
+    <div id="main">
+        <section class="m-5">
+        {% if app.flashbag %}
+            <div class="alert alert-{{ app.flashbag.type }}">
+                {{ app.flashbag.message  }}
+            </div>
+        {% endif %}
+        </section>
+        {% block body %}{% endblock %}
+    </div>
+
+    <div id="bg_top_footer">&nbsp;</div>
+        <footer class="foot">
+            <div id="footer">
+                <div id="bg_bottom">&nbsp;</div>
+                <div id="foot_table">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="180">
+                        <ul>
+                            <li><a href="javascript:;" title="Aide">Besoin d'aide?</a></li>
+                            <li><a href="javascript:;" title="Qui somme nous">Qui sommes nous</a></li>
+                        </ul>
+                    </td>
+                    <td width="350">
+                        <ul>
+                            <li><a href="javascript:;" title="Catalogue en ligne">Catalogue</a></li>
+                            <li><a href="javascript:;" rel="nofollow" title="Mon Compte">Mon Compte</a></li>
+                        </ul>
+                    </td>
+                    <td></td>
+                </tr>
+                </table>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

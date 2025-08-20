@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+<main class="login-container">
+  <form method="post" class="login-form">
+    <h2>Connexion</h2>
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Votre email">
+    <label>Mot de passe</label>
+    <input type="password" name="password" placeholder="Votre mot de passe">
+    <button type="submit">Se connecter</button>
+  </form>
+</main>
+{% endblock %}

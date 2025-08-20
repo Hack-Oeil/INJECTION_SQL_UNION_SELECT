@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    {% if flag and app.user %}
+        <div class="container-fluid custom-container">
+            <div class="alert alert-success">Bien joué le flag est : {{ flag }}</div>
+        </div>
+    {% endif %}
+
+
+    <div style="margin:10px">
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-item">
+                    <img src="{{ absolute_url("/products/") }}{{ product.picture|e }}" alt="Product {{ product.id }}">
+                    <h3>{{ product.title|e }}</h3>
+                    <p class="price">€{{ product.price|e }}</p>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

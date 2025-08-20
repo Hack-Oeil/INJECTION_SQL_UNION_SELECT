@@ -6,7 +6,13 @@
 
 # faille SQL, union select
 Dans cet exercice il est possible de chercher des vêtements, mais pas que.
-Vous devez afficher le hash de l'admin, si le hash se trouve sur la page en sortie vous obtiendrez le flag.
+Vous devez vous connecter en tant qu'admin et vous obtiendrez le flag.
+
+
+
+## Aperçu
+![presentation/assets/images/capture.jpg](presentation/assets/images/capture.jpg)
+
 
 -----------
 
